@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="description" content="Checkout - Taste Of Terai">
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Taste Of Terai">
+    <title>Checkout - Taste Of Terai</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=192&h=192&fit=crop">
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=180&h=180&fit=crop">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Khalti SDK -->
+    <script src="https://khalti.com/static/khalti-checkout.js"></script>
+</head>
+<body>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:9765151023" class="float-btn call-btn">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/9779765151023" target="_blank" class="float-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍬</span>
+                    <span class="logo-text">Taste Of Terai</span>
+                </a>
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="products.html" class="nav-link">Products</a></li>
+                        <li><a href="orders.html" class="nav-link">Orders</a></li>
+                        <li><a href="track-order.html" class="nav-link">Track Order</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Policies <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="return-policy.html">Return Policy</a></li>
+                                <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Checkout</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="products.html">Products</a>
+                <span>/</span>
+                <span class="current">Checkout</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-container">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <form id="checkoutForm">
+                        <!-- Contact Information -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-user"></i> Contact Information</h3>
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" name="name" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" required placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" name="email" placeholder="Enter your email (optional)">
+                            </div>
+                        </div>
+
+                        <!-- Delivery Address -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-map-marker-alt"></i> Delivery Address</h3>
+                            <div class="form-group">
+                                <label>City *</label>
+                                <select name="city" required id="citySelect">
+                                    <option value="">Select City</option>
+                                    <option value="Kathmandu">Kathmandu</option>
+                                    <option value="Lalitpur">Lalitpur</option>
+                                    <option value="Bhaktapur">Bhaktapur</option>
+                                    <option value="Birgunj">Birgunj</option>
+                                    <option value="Hetauda">Hetauda</option>
+                                    <option value="Pokhara">Pokhara</option>
+                                    <option value="Chitwan">Chitwan</option>
+                                    <option value="Biratnagar">Biratnagar</option>
+                                    <option value="Butwal">Butwal</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Area/Location *</label>
+                                <input type="text" name="area" required placeholder="e.g., Kalanki, Bojepokhari">
+                            </div>
+                            <div class="form-group">
+                                <label>Full Address *</label>
+                                <textarea name="address" required rows="3" placeholder="Enter your complete delivery address"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                            
+                            <div class="payment-method" onclick="selectPayment('bank')">
+                                <input type="radio" name="payment" value="bank" id="bankTransfer">
+                                <label class="payment-method-label" for="bankTransfer">
+                                    <i class="fas fa-university"></i>
+                                    <div>
+                                        <strong>Bank Transfer</strong>
+                                        <span style="display: block; font-size: 0.85rem; color: #666;">Transfer to our bank account</span>
+                                    </div>
+                                </label>
+                                <div class="payment-details" id="bankDetails">
+                                    <div class="bank-details">
+                                        <p><strong>Bank Name:</strong> NMB Bank Ltd.</p>
+                                        <p><strong>Account Name:</strong> Taste Of Terai</p>
+                                        <p><strong>Account Number:</strong> 1234567890</p>
+                                        <p><strong>Branch:</strong> Birgunj</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Upload Payment Screenshot</label>
+                                        <input type="file" name="paymentScreenshot" accept="image/*">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Transaction ID (from bank receipt)</label>
+                                        <input type="text" name="transactionId" placeholder="Enter transaction ID">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-method" onclick="selectPayment('esewa')">
+                                <input type="radio" name="payment" value="esewa" id="esewa">
+                                <label class="payment-method-label" for="esewa">
+                                    <i class="fas fa-wallet"></i>
+                                    <div>
+                                        <strong>eSewa</strong>
+                                        <span style="display: block; font-size: 0.85rem; color: #666;">Pay via eSewa mobile app</span>
+                                    </div>
+                                </label>
+                                <div class="payment-details" id="esewaDetails">
+                                    <p style="margin-bottom: 1rem;">Pay with eSewa - The leading digital wallet in Nepal</p>
+                                    
+                                    <!-- Real eSewa Payment Button -->
+                                    <button type="button" class="btn btn-primary" onclick="payWithESewa()" style="width: 100%; margin-bottom: 1rem;">
+                                        <i class="fas fa-external-link-alt"></i> Pay Rs. <span id="esewaPayAmount">0</span> via eSewa
+                                    </button>
+                                    
+                                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">OR manual transfer:</p>
+                                    <ol style="padding-left: 1.5rem; margin-bottom: 1rem;">
+                                        <li>Open eSewa app</li>
+                                        <li>Go to Fund Transfer</li>
+                                        <li>Send Rs. <strong id="esewaAmount">0</strong> to our eSewa ID: <strong>9845510611</strong></li>
+                                        <li>Enter transaction ID below</li>
+                                    </ol>
+                                    <div class="form-group">
+                                        <label>eSewa Transaction ID</label>
+                                        <input type="text" name="esewaTransactionId" placeholder="Enter eSewa transaction ID">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-method" onclick="selectPayment('khalti')">
+                                <input type="radio" name="payment" value="khalti" id="khalti">
+                                <label class="payment-method-label" for="khalti">
+                                    <i class="fas fa-credit-card"></i>
+                                    <div>
+                                        <strong>Khalti</strong>
+                                        <span style="display: block; font-size: 0.85rem; color: #666;">Pay via Khalti digital wallet</span>
+                                    </div>
+                                </label>
+                                <div class="payment-details" id="khaltiDetails">
+                                    <p style="margin-bottom: 1rem;">Pay with Khalti - Nepal's digital payment solution</p>
+                                    
+                                    <!-- Real Khalti Payment Button -->
+                                    <button type="button" class="btn btn-primary" onclick="payWithKhalti()" style="width: 100%; margin-bottom: 1rem; background: #5C2E91;">
+                                        <i class="fas fa-external-link-alt"></i> Pay Rs. <span id="khaltiPayAmount">0</span> via Khalti
+                                    </button>
+                                    
+                                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 1rem;">OR manual transfer:</p>
+                                    <ol style="padding-left: 1.5rem; margin-bottom: 1rem;">
+                                        <li>Open Khalti app</li>
+                                        <li>Go to Send Money</li>
+                                        <li>Send Rs. <strong id="khaltiAmount">0</strong> to our Khalti number: <strong>9845510611</strong></li>
+                                        <li>Enter transaction ID below</li>
+                                    </ol>
+                                    <div class="form-group">
+                                        <label>Khalti Transaction ID</label>
+                                        <input type="text" name="khaltiTransactionId" placeholder="Enter Khalti transaction ID">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Notes -->
+                        <div class="form-section">
+                            <h3><i class="fas fa-sticky-note"></i> Order Notes</h3>
+                            <div class="form-group">
+                                <label>Special Instructions</label>
+                                <textarea name="notes" rows="3" placeholder="Any special instructions for delivery?"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-check"></i> Place Order
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-items" id="summaryItems">
+                        <!-- Items will be loaded here -->
+                    </div>
+                    <div class="summary-subtotal">
+                        <span>Subtotal</span>
+                        <span id="summarySubtotal">Rs. 0</span>
+                    </div>
+                    <div class="summary-delivery">
+                        <span>Delivery Fee</span>
+                        <span id="summaryDelivery">Rs. 100</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="summaryTotal">Rs. 100</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Taste Of Terai</h3>
+                    <p>Authentic Mithai & Traditional Sweets from Nepal.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone-alt"></i> +977-9765151023</li>
+                        <li><i class="fas fa-phone-alt"></i> +977-9845510611</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Taste Of Terai – All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {});
+            });
+        }
+    </script>
+    <script>
+        // Initialize checkout
+        function initCheckout() {
+            // Ensure cart is loaded
+            const checkCart = () => {
+                if (typeof getCartItems === 'function') {
+                    loadOrderSummary();
+                } else {
+                    setTimeout(checkCart, 100);
+                }
+            };
+            checkCart();
+        }
+        
+        document.addEventListener('DOMContentLoaded', initCheckout);
+
+        function loadOrderSummary() {
+            const cart = getCartItems();
+            const summaryItems = document.getElementById('summaryItems');
+            
+            if (cart.length === 0) {
+                window.location.href = 'products.html';
+                return;
+            }
+
+            summaryItems.innerHTML = cart.map(item => `
+                <div class="summary-item">
+                    <span>${item.name} x ${item.quantity}</span>
+                    <span>Rs. ${item.price * item.quantity}</span>
+                </div>
+            `).join('');
+
+            const subtotal = getCartTotal();
+            const deliveryFee = 100;
+            const total = subtotal + deliveryFee;
+
+            document.getElementById('summarySubtotal').textContent = `Rs. ${subtotal}`;
+            document.getElementById('summaryDelivery').textContent = `Rs. ${deliveryFee}`;
+            document.getElementById('summaryTotal').textContent = `Rs. ${total}`;
+            document.getElementById('esewaAmount').textContent = total;
+            document.getElementById('khaltiAmount').textContent = total;
+            document.getElementById('esewaPayAmount').textContent = total;
+            document.getElementById('khaltiPayAmount').textContent = total;
+        }
+
+        // eSewa Payment Integration
+        function payWithESewa() {
+            const total = getCartTotal() + 100;
+            const orderId = 'TOT-' + Date.now();
+            
+            // eSewa payment URL (Demo - replace with actual merchant ID)
+            const esewaUrl = `https://esewa.com.np/epay/main?amt=${total}&pdc=0&psc=0&su=http://localhost:3000/api/payment/esewa/success&fu=http://localhost:3000/api/payment/esewa/failure&pid=${orderId}`;
+            
+            // For demo, show alert. In production, redirect to eSewa
+            if(confirm(`You will be redirected to eSewa to pay Rs. ${total}. Continue?`)) {
+                window.open(esewaUrl, '_blank');
+            }
+        }
+
+        // Khalti Payment Integration
+        function payWithKhalti() {
+            const total = (getCartTotal() + 100) * 100; // Convert to paisa
+            const orderId = 'TOT-' + Date.now();
+            
+            // Khalti payment configuration
+            const config = {
+                "publicKey": "test_public_key_dc74e0fd57cb46e2a9c3c9c9f8a3b2e",
+                "productIdentity": orderId,
+                "productName": "Taste Of Terai Order",
+                "productUrl": "http://localhost:3000",
+                "eventHandler": function(e) {
+                    if (e.eventType === "payment_success") {
+                        // Handle successful payment
+                        document.getElementById('khaltiToken').value = e.data.token;
+                        alert('Payment successful! Transaction ID: ' + e.data.token);
+                    } else if (e.eventType === "payment_error") {
+                        alert('Payment failed. Please try again.');
+                    }
+                }
+            };
+            
+            // Initialize Khalti
+            if (typeof Khalti !== 'undefined') {
+                KhaltiCheckout.init(config).then(function() {
+                    KhaltiCheckout.show({amount: total});
+                });
+            } else {
+                // Fallback: Open Khalti app
+                const khaltiUrl = `https://khalti.com/payment/?amount=${total}&productIdentity=${orderId}&productName=Taste+Of+Terai+Order`;
+                if(confirm(`You will be redirected to Khalti to pay Rs. ${total/100}. Continue?`)) {
+                    window.open(khaltiUrl, '_blank');
+                }
+            }
+        }
+
+        function selectPayment(method) {
+            document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
+            document.querySelector(`input[value="${method}"]`).closest('.payment-method').classList.add('selected');
+            document.querySelector(`input[value="${method}"]`).checked = true;
+        }
+
+        // Check if running from file:// protocol
+        const isFileProtocol = window.location.protocol === 'file:';
+        if (isFileProtocol) {
+            console.warn('WARNING: Opening HTML files directly (file://) will not work with the API. Please access through http://localhost:3000');
+            alert('Please access this page through the server: http://localhost:3000/checkout.html\n\nOpening files directly (file://) will not work with the backend API.');
+        }
+        
+        // API Base URL - uses relative path when served from same origin
+        const API_BASE = window.location.origin + '/api';
+        console.log('API Base URL:', API_BASE);
+        
+        // Handle form submission
+        document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const cart = getCartItems();
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const formData = new FormData(this);
+            const city = formData.get('city');
+            const district = city; // Use city as district
+            const area = formData.get('area');
+            const shippingAddress = formData.get('address') + (area ? ', ' + area : '');
+            
+            const orderData = {
+                customer: {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    address: formData.get('address')
+                },
+                items: cart.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    quantity: item.quantity
+                })),
+                shipping_address: shippingAddress,
+                city: city,
+                district: district,
+                payment_method: formData.get('payment'),
+                notes: formData.get('notes')
+            };
+
+            // Calculate totals
+            const subtotal = getCartTotal();
+            const deliveryCharge = (city === 'Kathmandu' || city === 'Lalitpur') ? 0 : 100;
+            orderData.subtotal = subtotal;
+            orderData.delivery_charge = deliveryCharge;
+            orderData.total = subtotal + deliveryCharge;
+
+            try {
+                // Show loading state
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Processing...';
+                submitBtn.disabled = true;
+
+                console.log('Submitting order data:', JSON.stringify(orderData));
+
+                // Send order to backend API
+                const response = await fetch(`${API_BASE}/orders`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(orderData)
+                });
+
+                console.log('Response status:', response.status);
+                const result = await response.json();
+                console.log('Response data:', result);
+
+                if (response.ok) {
+                    // Clear cart
+                    clearCart();
+                    
+                    // Redirect to confirmation with order ID
+                    window.location.href = `order-confirmation.html?orderId=${result.orderId || result.orderNumber}`;
+                } else {
+                    alert('Error placing order: ' + (result.error || 'Unknown error'));
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Order submission error:', error);
+                alert('Failed to connect to server. Please make sure the server is running.');
+                
+                // Fallback: save locally if API fails
+                const orders = JSON.parse(localStorage.getItem('orders')) || [];
+                orderData.id = 'TOT-' + Date.now();
+                orderData.status = 'pending';
+                orderData.date = new Date().toISOString();
+                orders.push(orderData);
+                localStorage.setItem('orders', JSON.stringify(orders));
+                
+                clearCart();
+                window.location.href = `order-confirmation.html?orderId=${orderData.id}`;
+            }
+        });
+    </script>
+</body>
+</html>

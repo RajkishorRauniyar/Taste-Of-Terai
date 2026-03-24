@@ -1,0 +1,376 @@
+{
+  "users": [
+    {
+      "id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "email": "admin@tasteofterai.com",
+      "password": "$2a$10$ex1xSE2L6MTyT2Yll32vIeLtfyaIzQea4lFtBmHyoe7gkm2EBwtxe",
+      "name": "Super Admin",
+      "phone": "+977-9765151023",
+      "role": "super_admin",
+      "is_active": 1,
+      "created_at": "2026-02-22T12:37:19.445Z",
+      "last_login": "2026-03-10T11:03:04.102Z",
+      "updated_at": "2026-03-10T11:03:04.102Z"
+    },
+    {
+      "email": "raja@gmail.com",
+      "password": "$2a$10$dmX17/dNh/LYxIij6oXhfO9ziJ0cDvZx7m0JrxqYXhk1WJv5g5yqy",
+      "name": "Sawant Gupta",
+      "phone": "9845510611",
+      "role": "admin",
+      "is_active": 1,
+      "id": "1660e033-1388-4933-926f-d3e1cde39cf1",
+      "created_at": "2026-02-22T13:16:22.125Z"
+    },
+    {
+      "email": "roshan@gmail.com",
+      "password": "$2a$10$i.3iukXRAlmuAjk.O4KJ4.30x1eQ6UM.28tXNY/uAPWG/qpuPP5wq",
+      "name": "Roshan Yadav",
+      "phone": "1234567789",
+      "role": "admin",
+      "is_active": 1,
+      "id": "28fbd02c-e421-46e7-be9a-03583929a114",
+      "created_at": "2026-02-22T13:38:43.195Z"
+    }
+  ],
+  "customers": [
+    {
+      "name": "Nabin Shrestha",
+      "email": "sawantgupta86@gmail.com",
+      "phone": "9741889439",
+      "address": "jhb",
+      "city": "Kathmandu",
+      "district": "Kathmandu",
+      "id": "6e65d2b3-f21c-48f1-ae74-bc37626d0f0e",
+      "created_at": "2026-03-04T00:54:23.637Z"
+    },
+    {
+      "name": "Sarita",
+      "email": "raja@gmail.com",
+      "phone": "1234567899",
+      "address": "j4hdjk",
+      "city": "Pokhara",
+      "district": "Pokhara",
+      "id": "7e2b52a5-6bf3-467c-9165-842b36629571",
+      "created_at": "2026-03-10T11:02:32.081Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "01b3bac8-40fe-4ea6-9758-36608c48a9be",
+      "name": "Traditional Sweets",
+      "description": "Authentic traditional Nepali sweets",
+      "is_active": 1,
+      "sort_order": 1
+    },
+    {
+      "id": "b7cd95f8-8874-43db-ac6f-28f59b9c772c",
+      "name": "Ladoo",
+      "description": "Various types of ladoo",
+      "is_active": 1,
+      "sort_order": 2
+    },
+    {
+      "id": "74dea0bf-91b0-4db4-8737-0e45fc12cefb",
+      "name": "Dry Fruits",
+      "description": "Premium dry fruits",
+      "is_active": 1,
+      "sort_order": 3
+    },
+    {
+      "id": "4c6ad898-fd5e-4f1c-a437-5f28c83f006f",
+      "name": "Premium Sweets",
+      "description": "Premium quality sweets",
+      "is_active": 1,
+      "sort_order": 4
+    },
+    {
+      "id": "ae2866d5-1b3b-4e4e-9d01-8d25416a14a5",
+      "name": "Gift Boxes",
+      "description": "Beautifully packed gift boxes",
+      "is_active": 0,
+      "sort_order": 5
+    }
+  ],
+  "products": [
+    {
+      "id": "7ab53e0e-dcec-401c-bd4a-142575209d87",
+      "name": "Khajuri",
+      "category_id": "01b3bac8-40fe-4ea6-9758-36608c48a9be",
+      "description": "Traditional date palm sweet, handcrafted with authentic recipe.",
+      "price": 500,
+      "original_price": 600,
+      "weight": "500 gm",
+      "image": "https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=400&h=300&fit=crop",
+      "badge": "Best Seller",
+      "in_stock": 1,
+      "is_featured": 1,
+      "sort_order": 1,
+      "created_at": "2026-02-22T12:37:19.446Z"
+    },
+    {
+      "id": "d182ba04-6914-4c17-b53a-754a9687b3c1",
+      "name": "Thekuwa",
+      "category_id": "01b3bac8-40fe-4ea6-9758-36608c48a9be",
+      "description": "Traditional Nepalese wheat flour sweet with jaggery.",
+      "price": 500,
+      "original_price": 600,
+      "weight": "500 gm",
+      "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop",
+      "badge": "Popular",
+      "in_stock": 1,
+      "is_featured": 1,
+      "sort_order": 2,
+      "created_at": "2026-02-22T12:37:19.446Z"
+    },
+    {
+      "id": "427a17f2-1f31-4d9d-bec4-e12691c207bc",
+      "name": "Mix Dry Fruits",
+      "category_id": "74dea0bf-91b0-4db4-8737-0e45fc12cefb",
+      "description": "Premium mix of almonds, cashews, raisins, walnuts, and apricots.",
+      "price": 1000,
+      "original_price": 1200,
+      "weight": "500 gm",
+      "image": "https://images.unsplash.com/photo-1599598425947-730816b1ee3c?w=400&h=300&fit=crop",
+      "badge": "Premium",
+      "in_stock": 1,
+      "is_featured": 1,
+      "sort_order": 3,
+      "created_at": "2026-02-22T12:37:19.446Z"
+    },
+    {
+      "id": "9208df7d-33ac-4aad-885e-7cabf16b314f",
+      "name": "Mix Dry Fruits Ladoo",
+      "category_id": "b7cd95f8-8874-43db-ac6f-28f59b9c772c",
+      "description": "Delicious ladoo made with premium dry fruits, ghee, and jaggery.",
+      "price": 1100,
+      "original_price": 1300,
+      "weight": "500 gm",
+      "image": "https://images.unsplash.com/photo-1589119908995-c6837fa14848?w=400&h=300&fit=crop",
+      "badge": "New",
+      "in_stock": 1,
+      "is_featured": 1,
+      "sort_order": 4,
+      "created_at": "2026-02-22T12:37:19.446Z"
+    },
+    {
+      "id": "a0226889-5b18-4b7f-9151-874f2cb86efc",
+      "name": "Besan Laddu",
+      "category_id": "b7cd95f8-8874-43db-ac6f-28f59b9c772c",
+      "description": "Classic gram flour laddu with aromatic spices and ghee.",
+      "price": 450,
+      "original_price": 500,
+      "weight": "500 gm",
+      "image": "https://images.unsplash.com/photo-1627665460198-2457172596d6?w=400&h=300&fit=crop",
+      "badge": "Traditional",
+      "in_stock": 1,
+      "is_featured": 0,
+      "sort_order": 5,
+      "created_at": "2026-02-22T12:37:19.446Z"
+    },
+    {
+      "id": "bd32c4fe-0de6-40aa-884f-95174077ff12",
+      "name": "Motichoor Laddu",
+      "category_id": "b7cd95f8-8874-43db-ac6f-28f59b9c772c",
+      "description": "Fine gram flour pearls soaked in rose-flavored sugar syrup.",
+      "price": 550,
+      "original_price": 650,
+      "weight": "500 gm",
+      "image": "https://images.unsplash.com/photo-1605197136312-dba8b5595f5d?w=400&h=300&fit=crop",
+      "badge": "Favorite",
+      "in_stock": 1,
+      "is_featured": 1,
+      "sort_order": 6,
+      "created_at": "2026-02-22T12:37:19.446Z"
+    },
+    {
+      "id": "442649af-1d45-4888-b12f-df95f891070a",
+      "name": "Kaju Katli",
+      "category_id": "4c6ad898-fd5e-4f1c-a437-5f28c83f006f",
+      "description": "Premium cashew fudge with silver leaf decoration.",
+      "price": 850,
+      "original_price": 1000,
+      "weight": "500 gm",
+      "image": "https://images.unsplash.com/photo-1605197136312-dba8b5595f5d?w=400&h=300&fit=crop",
+      "badge": "Premium",
+      "in_stock": 1,
+      "is_featured": 1,
+      "sort_order": 7,
+      "created_at": "2026-02-22T12:37:19.446Z"
+    },
+    {
+      "id": "cb5603a2-b9b3-467c-9bf3-4d7d2077c530",
+      "name": "Gulab Jamun",
+      "category_id": "01b3bac8-40fe-4ea6-9758-36608c48a9be",
+      "description": "Soft dough balls soaked in rose-flavored sugar syrup.",
+      "price": 400,
+      "original_price": 450,
+      "weight": "500 gm",
+      "image": "https://images.unsplash.com/photo-1627665460198-2457172596d6?w=400&h=300&fit=crop",
+      "badge": "Popular",
+      "in_stock": 1,
+      "is_featured": 0,
+      "sort_order": 8,
+      "created_at": "2026-02-22T12:37:19.446Z"
+    },
+    {
+      "name": "Rasgula",
+      "category_id": "4c6ad898-fd5e-4f1c-a437-5f28c83f006f",
+      "description": "j'qw",
+      "price": 1000,
+      "original_price": 1200,
+      "weight": "500 gm",
+      "unit": "piece",
+      "image": null,
+      "badge": null,
+      "in_stock": 1,
+      "is_featured": 0,
+      "sort_order": 9,
+      "id": "c8c8226c-f11f-4b6e-a9ed-39d6ceaed44d",
+      "created_at": "2026-02-22T13:41:34.100Z"
+    }
+  ],
+  "orders": [
+    {
+      "customer_id": "7e2b52a5-6bf3-467c-9165-842b36629571",
+      "customer_name": "Sarita",
+      "customer_phone": "1234567899",
+      "customer_email": "raja@gmail.com",
+      "shipping_address": "j4hdjk, ;lhulkhj",
+      "city": "Pokhara",
+      "district": "Pokhara",
+      "subtotal": 500,
+      "delivery_charge": 100,
+      "total": 600,
+      "items": [
+        {
+          "id": 1,
+          "name": "Khajuri",
+          "price": 500,
+          "quantity": 1
+        }
+      ],
+      "payment_method": "cash",
+      "notes": null,
+      "id": "3ebff693-ea3c-4f6c-aa6d-c3b09c55289c",
+      "order_number": "TOT-1773140552088",
+      "created_at": "2026-03-10T11:02:32.089Z",
+      "status": "delivered",
+      "payment_status": "completed",
+      "updated_at": "2026-03-10T11:05:17.624Z"
+    },
+    {
+      "customer_id": "6e65d2b3-f21c-48f1-ae74-bc37626d0f0e",
+      "customer_name": "Nabin Shrestha",
+      "customer_phone": "9741889439",
+      "customer_email": "sawantgupta86@gmail.com",
+      "shipping_address": "jhb, jkh/",
+      "city": "Kathmandu",
+      "district": "Kathmandu",
+      "subtotal": 500,
+      "delivery_charge": 0,
+      "total": 500,
+      "items": [
+        {
+          "id": 1,
+          "name": "Khajuri",
+          "price": 500,
+          "quantity": 1
+        }
+      ],
+      "payment_method": "cash",
+      "notes": null,
+      "id": "5524075f-f4b5-4763-ad78-591ff13e4e40",
+      "order_number": "TOT-1772585663640",
+      "created_at": "2026-03-04T00:54:23.641Z",
+      "status": "delivered",
+      "payment_status": "completed",
+      "updated_at": "2026-03-04T00:55:00.193Z"
+    }
+  ],
+  "payments": [],
+  "delivery_tracking": [],
+  "activity_log": [
+    {
+      "user_id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "action": "login",
+      "entity_type": "user",
+      "ip_address": "::1",
+      "id": "51549f9b-4526-406e-931b-609ec5a2f317",
+      "created_at": "2026-02-22T13:05:20.536Z"
+    },
+    {
+      "user_id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "action": "login",
+      "entity_type": "user",
+      "ip_address": "::1",
+      "id": "a0b07c4f-87bf-449a-b437-e68689d5b942",
+      "created_at": "2026-02-22T13:25:21.690Z"
+    },
+    {
+      "user_id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "action": "login",
+      "entity_type": "user",
+      "ip_address": "::1",
+      "id": "79bcb585-6f3b-4d20-9358-6c468cc3790e",
+      "created_at": "2026-03-04T00:53:29.407Z"
+    },
+    {
+      "user_id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "action": "login",
+      "entity_type": "user",
+      "ip_address": "::1",
+      "id": "98407fc2-141e-4145-a1aa-dac3f85dfd3c",
+      "created_at": "2026-03-04T00:53:51.456Z"
+    },
+    {
+      "id": "3f83a8d0-63ec-43a8-8613-68cd2d6a737c",
+      "action": "order_created",
+      "entity_type": "order",
+      "entity_id": "5524075f-f4b5-4763-ad78-591ff13e4e40",
+      "details": "Order TOT-1772585663640 created",
+      "created_at": "2026-03-04T00:54:23.642Z"
+    },
+    {
+      "user_id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "action": "login",
+      "entity_type": "user",
+      "ip_address": "::1",
+      "id": "ed12b42d-a4af-4be6-bbef-1c362283c58d",
+      "created_at": "2026-03-04T00:54:47.629Z"
+    },
+    {
+      "user_id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "action": "login",
+      "entity_type": "user",
+      "ip_address": "::1",
+      "id": "3a7a41dc-6036-4f07-ab20-f9401384b1df",
+      "created_at": "2026-03-04T00:57:26.295Z"
+    },
+    {
+      "user_id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "action": "login",
+      "entity_type": "user",
+      "ip_address": "::1",
+      "id": "7991d706-65e0-47d1-9e3b-be9fd705531e",
+      "created_at": "2026-03-10T10:52:43.272Z"
+    },
+    {
+      "id": "799e193c-4249-4e6b-ac2a-5c423a392877",
+      "action": "order_created",
+      "entity_type": "order",
+      "entity_id": "3ebff693-ea3c-4f6c-aa6d-c3b09c55289c",
+      "details": "Order TOT-1773140552088 created",
+      "created_at": "2026-03-10T11:02:32.091Z"
+    },
+    {
+      "user_id": "4f777921-5974-4175-8bc6-9f6a603fb037",
+      "action": "login",
+      "entity_type": "user",
+      "ip_address": "::1",
+      "id": "a682a37f-3a9f-4df3-be0f-c5eab7cd9183",
+      "created_at": "2026-03-10T11:03:04.102Z"
+    }
+  ],
+  "invitations": []
+}

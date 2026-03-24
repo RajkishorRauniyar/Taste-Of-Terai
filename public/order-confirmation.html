@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Order Confirmed - Taste Of Terai">
+    <title>Order Confirmed - Taste Of Terai</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:9765151023" class="float-btn call-btn">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/9779765151023" target="_blank" class="float-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍬</span>
+                    <span class="logo-text">Taste Of Terai</span>
+                </a>
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="products.html" class="nav-link">Products</a></li>
+                        <li><a href="orders.html" class="nav-link">Orders</a></li>
+                        <li><a href="track-order.html" class="nav-link">Track Order</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Order Confirmation -->
+    <section class="order-confirmation">
+        <div class="container">
+            <div class="confirmation-container">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2>Thank You for Your Order!</h2>
+                <p>Your order has been placed successfully. We will process it shortly.</p>
+                
+                <div class="order-id-display">
+                    <span>Order ID:</span>
+                    <strong id="orderId">-</strong>
+                </div>
+                
+                <div class="confirmation-details">
+                    <p>
+                        <span>Customer Name:</span>
+                        <span id="customerName">-</span>
+                    </p>
+                    <p>
+                        <span>Phone:</span>
+                        <span id="customerPhone">-</span>
+                    </p>
+                    <p>
+                        <span>Delivery Address:</span>
+                        <span id="deliveryAddress">-</span>
+                    </p>
+                    <p>
+                        <span>Payment Method:</span>
+                        <span id="paymentMethod">-</span>
+                    </p>
+                    <p>
+                        <span>Order Total:</span>
+                        <span id="orderTotal">-</span>
+                    </p>
+                </div>
+                
+                <p style="margin-top: 2rem; color: #666;">
+                    <i class="fas fa-envelope"></i> Order confirmation has been sent to your phone via SMS.
+                </p>
+                
+                <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                    <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+                    <a href="track-order.html" class="btn btn-secondary">Track Order</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Taste Of Terai – All Rights Reserved | Developed by Taste Of Terai</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get order ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('orderId');
+        
+        if (orderId) {
+            document.getElementById('orderId').textContent = orderId;
+            
+            // Get order from localStorage
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const order = orders.find(o => o.id === orderId);
+            
+            if (order) {
+                document.getElementById('customerName').textContent = order.customer.name;
+                document.getElementById('customerPhone').textContent = order.customer.phone;
+                document.getElementById('deliveryAddress').textContent = 
+                    `${order.customer.address}, ${order.customer.area}, ${order.customer.city}`;
+                
+                const paymentMethods = {
+                    'bank': 'Bank Transfer',
+                    'esewa': 'eSewa',
+                    'khalti': 'Khalti'
+                };
+                document.getElementById('paymentMethod').textContent = paymentMethods[order.payment.method] || 'Bank Transfer';
+                document.getElementById('orderTotal').textContent = `Rs. ${order.total}`;
+            }
+        } else {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="description" content="Shop traditional Nepali sweets online - Khajuri, Thekuwa, Mix Dry Fruits, Ladoo and more at Taste Of Terai">
+    <meta name="keywords" content="Buy Sweets Online, Nepali Mithai, Khajuri, Thekuwa, Dry Fruits, Ladoo">
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Taste Of Terai">
+    <title>Products - Taste Of Terai</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=192&h=192&fit=crop">
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=180&h=180&fit=crop">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:9765151023" class="float-btn call-btn" id="callBtn">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/9779765151023" target="_blank" class="float-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍬</span>
+                    <span class="logo-text">Taste Of Terai</span>
+                </a>
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="products.html" class="nav-link active">Products</a></li>
+                        <li><a href="orders.html" class="nav-link">Orders</a></li>
+                        <li><a href="track-order.html" class="nav-link">Track Order</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Policies <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="return-policy.html">Return Policy</a></li>
+                                <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button id="closeSearch"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount" id="cartTotal">Rs. 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="current">Products</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="category-list" id="categoryList">
+                            <!-- Categories will be loaded here -->
+                        </ul>
+                    </div>
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Price Range</h3>
+                        <div class="price-filter">
+                            <input type="number" class="price-input" placeholder="Min Price" id="minPrice">
+                            <input type="number" class="price-input" placeholder="Max Price" id="maxPrice">
+                            <button class="btn btn-secondary" onclick="filterByPrice()">Apply Filter</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Modal -->
+    <div class="product-details-modal" id="productDetailsModal">
+        <button class="close-details" onclick="closeProductDetails()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="product-details-content">
+            <div class="product-details-image">
+                <img src="" alt="" id="productDetailsImage">
+            </div>
+            <div class="product-details-info">
+                <span class="product-details-category" id="productDetailsCategory"></span>
+                <h2 class="product-details-title" id="productDetailsTitle"></h2>
+                <p class="product-details-price" id="productDetailsPrice"></p>
+                <p class="product-details-description" id="productDetailsDescription"></p>
+                
+                <div class="quantity-selector">
+                    <label>Quantity:</label>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="changeDetailsQuantity(-1)">-</button>
+                        <input type="number" value="1" min="1" id="productDetailsQuantity">
+                        <button class="quantity-btn" onclick="changeDetailsQuantity(1)">+</button>
+                    </div>
+                </div>
+                
+                <input type="hidden" id="productDetailsId">
+                
+                <div class="product-details-actions">
+                    <button class="btn btn-primary" onclick="addFromDetails()">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="btn btn-secondary" onclick="buyNow()">
+                        Buy Now
+                    </button>
+                </div>
+                
+                <div class="delivery-info">
+                    <p><i class="fas fa-truck"></i> Delivery within 2-3 days across Nepal</p>
+                    <p><i class="fas fa-shield-alt"></i> 2-3 days return policy for damaged items</p>
+                    <p><i class="fas fa-phone-alt"></i> Call: +977-9765151023 for orders</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Taste Of Terai</h3>
+                    <p>Authentic Mithai & Traditional Sweets from Nepal. Bringing the true taste of Terai to your doorstep.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone-alt"></i> +977-9765151023</li>
+                        <li><i class="fas fa-phone-alt"></i> +977-9845510611</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Birgunj, Nepal</li>
+                        <li><i class="fas fa-envelope"></i> info@tasteofterai.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Taste Of Terai – All Rights Reserved | Developed by Taste Of Terai</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Wait for all scripts to load then initialize
+        function initProducts() {
+            // Check if productsData is available from main.js
+            const checkProducts = () => {
+                if (window.productsData && window.productsData.length > 0) {
+                    loadAllProducts();
+                } else if (typeof products !== 'undefined' && products.length > 0) {
+                    window.productsData = products;
+                    loadAllProducts();
+                } else {
+                    // Retry after short delay
+                    setTimeout(checkProducts, 100);
+                }
+            };
+            checkProducts();
+        }
+        
+        // Initialize on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', initProducts);
+        
+        window.addEventListener('load', () => {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').catch(() => {});
+            }
+        });
+    </script>
+    <script>
+        function loadAllProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            if (productsGrid && window.productsData) {
+                displayProducts(window.productsData, productsGrid);
+            }
+        }
+
+        function closeProductDetails() {
+            document.getElementById('productDetailsModal').classList.remove('active');
+        }
+
+        function changeDetailsQuantity(change) {
+            const input = document.getElementById('productDetailsQuantity');
+            let value = parseInt(input.value) + change;
+            if (value < 1) value = 1;
+            input.value = value;
+        }
+
+        function addFromDetails() {
+            const id = parseInt(document.getElementById('productDetailsId').value);
+            const qty = parseInt(document.getElementById('productDetailsQuantity').value);
+            
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const product = window.productsData.find(p => p.id === id);
+            
+            if (product) {
+                const existing = cart.find(p => p.id === id);
+                if (existing) {
+                    existing.quantity += qty;
+                } else {
+                    cart.push({ ...product, quantity: qty });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+                showNotification(`${product.name} added to cart!`);
+                closeProductDetails();
+            }
+        }
+
+        function buyNow() {
+            addFromDetails();
+            window.location.href = 'checkout.html';
+        }
+
+        function filterByPrice() {
+            const min = parseInt(document.getElementById('minPrice').value) || 0;
+            const max = parseInt(document.getElementById('maxPrice').value) || Infinity;
+            
+            const filtered = window.productsData.filter(p => p.price >= min && p.price <= max);
+            displayProducts(filtered, document.getElementById('productsGrid'));
+        }
+    </script>
+</body>
+</html>

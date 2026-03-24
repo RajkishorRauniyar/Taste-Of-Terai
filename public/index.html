@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="description" content="Taste Of Terai - Authentic Mithai & Traditional Sweets from Nepal. Shop online for Khajuri, Thekuwa, Mix Dry Fruits, and more.">
+    <meta name="keywords" content="Taste Of Terai, Traditional Sweets, Mithai, Nepali Sweets, Khajuri, Thekuwa, Dry Fruits, Online Shopping Nepal">
+    <meta name="author" content="Taste Of Terai">
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Taste Of Terai">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Taste Of Terai - Authentic Mithai & Traditional Taste">
+    <meta property="og:description" content="Shop traditional Nepali sweets online. Fresh & homemade mithai delivered to your doorstep.">
+    <meta property="og:type" content="website">
+    <title>Taste Of Terai</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=192&h=192&fit=crop">
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=180&h=180&fit=crop">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "Taste Of Terai",
+        "description": "Authentic Mithai & Traditional Sweets from Nepal",
+        "telephone": ["+977-9765151023", "+977-9845510611"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Birgunj",
+            "addressCountry": "NP"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:9765151023" class="float-btn call-btn" id="callBtn">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/9779765151023" target="_blank" class="float-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍬</span>
+                    <span class="logo-text">Taste Of Terai</span>
+                </a>
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="products.html" class="nav-link">Products</a></li>
+                        <li><a href="orders.html" class="nav-link">Orders</a></li>
+                        <li><a href="track-order.html" class="nav-link">Track Order</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Policies <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="return-policy.html">Return Policy</a></li>
+                                <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button id="closeSearch"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount" id="cartTotal">Rs. 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">Taste Of Terai</h1>
+            <p class="hero-tagline">Pure Traditional Sweetness</p>
+            <p class="hero-description">Discover the Authentic taste of traditional Mithai crafted with love and premium ingredients</p>
+            <a href="products.html" class="btn btn-primary hero-btn">
+                <span>Shop Now</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Fresh & Homemade</h3>
+                    <p>Every item is freshly prepared with traditional recipes</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>Best ingredients sourced from trusted suppliers</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-wash"></i>
+                    </div>
+                    <h3>Hygienic Packaging</h3>
+                    <p>Clean and safe packaging for your peace of mind</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick delivery across Nepal within 2-3 days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Featured Products</h2>
+                <p>Handcrafted with love using traditional recipes</p>
+            </div>
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be dynamically loaded -->
+            </div>
+            <div class="view-all-container">
+                <a href="products.html" class="btn btn-secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="about-preview">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=600&h=400&fit=crop" alt="Traditional Mithai">
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h2>Our Story</h2>
+                    <p>Welcome to Taste Of Terai, your destination for authentic traditional sweets from the Terai region of Nepal. We bring you the true taste of homemade Mithai crafted with age-old recipes and premium ingredients.</p>
+                    <p>Our journey began with a simple mission - to preserve and share the rich culinary heritage of Terai with the world. Every piece of sweet we create carries the warmth of tradition and the sweetness of memories.</p>
+                    <a href="about.html" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Founders Section -->
+    <section class="founders-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Meet Our Founders</h2>
+                <p>The passionate minds behind Taste Of Terai</p>
+            </div>
+            <div class="founders-grid">
+                <!-- Founder 1: Er. Sawant Gupta -->
+                <div class="founder-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="founder-photo-wrapper">
+                        <div class="founder-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <h3 class="founder-name">Er. Sawant Gupta</h3>
+                    <p class="founder-title">Founder</p>
+                    <p class="founder-bio">A visionary entrepreneur with a passion for technology-driven commerce and digital transformation in Nepal. Er. Sawant Gupta leads Taste Of Terai with innovative vision, bringing modern online shopping experiences to deliver authentic Mithai lovers across the nation.</p>
+                    <div class="founder-social">
+                        <a href="#" class="social-link facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" title="Twitter/X">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Founder 2: Er. Rajkishor Rauniyar -->
+                <div class="founder-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="founder-photo-wrapper">
+                        <div class="founder-photo">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <h3 class="founder-name">Er. Rajkishor Rauniyar</h3>
+                    <p class="founder-title">Co-Founder</p>
+                    <p class="founder-bio">A strategic planner and operations leader dedicated to building a reliable and customer-focused marketplace. Er. Rajkishor Rauniyar ensures seamless operations and unwavering commitment to quality, making Taste Of Terai a trusted name in traditional sweets.</p>
+                    <div class="founder-social">
+                        <a href="#" class="social-link facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" title="Twitter/X">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Trusted by thousands of happy customers</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The best Khajuri I've ever had! Tastes exactly like homemade. Will definitely order again."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <span>Kathmandu</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Amazing quality and fresh products. The delivery was super fast. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <span>Lalitpur</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"Great taste and beautiful packaging. Perfect for gifting during festivals."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sanjay Gupta</h4>
+                            <span>Birgunj</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Locations</h2>
+                <p>We deliver across Nepal</p>
+            </div>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Birgunj</h3>
+                    <p>Main Branch</p>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Bojepokhari, Lalitpur</h3>
+                    <p>Service Area</p>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Kalanki, Kathmandu</h3>
+                    <p>Service Area</p>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Hetauda</h3>
+                    <p>Service Area</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Find Us On Map</h2>
+            </div>
+            <div class="map-container" id="map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113032.53806599945!2d84.8676912!3d27.4304124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3993548a7e1c63d7%3A0x4a3e6b1d5c8e8c8c!2sBirgunj!5e0!3m2!1sen!2snp!4v1620000000000!5m2!1sen!2snp" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get updates on new products, offers, and special discounts</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Taste Of Terai</h3>
+                    <p>Authentic Mithai & Traditional Sweets from Terai Region Of Nepal. Bringing the true taste of Terai to your doorstep.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone-alt"></i> +977-9765151023</li>
+                        <li><i class="fas fa-phone-alt"></i> +977-9845510611</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Birgunj, Nepal</li>
+                        <li><i class="fas fa-envelope"></i> info@tasteofterai.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Taste Of Terai – All Rights Reserved | Developed by Taste Of Terai</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered:', registration.scope);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New content available
+                                    if (confirm('New version available! Refresh to update?')) {
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch((error) => console.log('SW registration failed:', error));
+            });
+        }
+        
+        // Handle standalone mode
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            document.body.classList.add('app-mode');
+        }
+        
+        // iOS PWA detection
+        if (window.navigator.standalone === true) {
+            document.body.classList.add('app-mode');
+        }
+    </script>
+</body>
+</html>

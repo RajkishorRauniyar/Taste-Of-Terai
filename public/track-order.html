@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="description" content="Track Your Order - Taste Of Terai">
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Taste Of Terai">
+    <title>Track Order - Taste Of Terai</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=192&h=192&fit=crop">
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1599639668273-41d7364fc51a?w=180&h=180&fit=crop">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:9765151023" class="float-btn call-btn">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://wa.me/9779765151023" target="_blank" class="float-btn whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍬</span>
+                    <span class="logo-text">Taste Of Terai</span>
+                </a>
+                <nav class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="products.html" class="nav-link">Products</a></li>
+                        <li><a href="orders.html" class="nav-link">Orders</a></li>
+                        <li><a href="track-order.html" class="nav-link active">Track Order</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Policies <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="return-policy.html">Return Policy</a></li>
+                                <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="cart-btn" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Track Your Order</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span class="current">Track Order</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Order Section -->
+    <section class="track-order-section">
+        <div class="container">
+            <div class="track-order-container">
+                <div class="track-order-form">
+                    <p style="text-align: center; margin-bottom: 1.5rem; color: #666;">
+                        Enter your Order ID to track your order status
+                    </p>
+                    <input type="text" id="trackOrderInput" placeholder="Enter Order ID (e.g., TOT-1234567890)">
+                    <button class="btn btn-primary" style="width: 100%;" onclick="trackOrder()">
+                        <i class="fas fa-search"></i> Track Order
+                    </button>
+                </div>
+
+                <div class="order-tracking-result" id="trackingResult">
+                    <div id="orderInfo">
+                        <h3 style="margin-bottom: 1rem; color: var(--secondary-color);">Order Information</h3>
+                        <div style="background: #f9f9f9; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+                            <p><strong>Order ID:</strong> <span id="infoOrderId"></span></p>
+                            <p><strong>Date:</strong> <span id="infoDate"></span></p>
+                            <p><strong>Status:</strong> <span id="infoStatus"></span></p>
+                            <p><strong>Total:</strong> <span id="infoTotal"></span></p>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 1rem; color: var(--secondary-color);">Order Timeline</h3>
+                    <div class="tracking-timeline">
+                        <div class="tracking-step" id="step1">
+                            <h4>Order Placed</h4>
+                            <p>Your order has been received</p>
+                        </div>
+                        <div class="tracking-step" id="step2">
+                            <h4>Order Confirmed</h4>
+                            <p>Your order is being processed</p>
+                        </div>
+                        <div class="tracking-step" id="step3">
+                            <h4>Shipped</h4>
+                            <p>Your order is on its way</p>
+                        </div>
+                        <div class="tracking-step" id="step4">
+                            <h4>Delivered</h4>
+                            <p>Your order has been delivered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Taste Of Terai</h3>
+                    <p>Authentic Mithai & Traditional Sweets from Nepal.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="return-policy.html">Return Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone-alt"></i> +977-9765151023</li>
+                        <li><i class="fas fa-phone-alt"></i> +977-9845510611</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Taste Of Terai – All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {});
+            });
+        }
+    </script>
+    <script>
+        function trackOrder() {
+            const orderId = document.getElementById('trackOrderInput').value.trim();
+            
+            if (!orderId) {
+                alert('Please enter your Order ID');
+                return;
+            }
+
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const order = orders.find(o => o.id === orderId);
+
+            if (!order) {
+                alert('Order not found! Please check your Order ID.');
+                return;
+            }
+
+            // Show order info
+            document.getElementById('infoOrderId').textContent = order.id;
+            document.getElementById('infoDate').textContent = new Date(order.date).toLocaleDateString();
+            document.getElementById('infoTotal').textContent = `Rs. ${order.total}`;
+            
+            const statusMap = {
+                'pending': 'Pending',
+                'confirmed': 'Confirmed',
+                'shipped': 'Shipped',
+                'delivered': 'Delivered'
+            };
+            document.getElementById('infoStatus').textContent = statusMap[order.status] || 'Pending';
+
+            // Update timeline
+            const statusIndex = ['pending', 'confirmed', 'shipped', 'delivered'].indexOf(order.status);
+            
+            document.querySelectorAll('.tracking-step').forEach((step, index) => {
+                step.classList.remove('active', 'completed');
+                if (index < statusIndex) {
+                    step.classList.add('completed');
+                } else if (index === statusIndex) {
+                    step.classList.add('active');
+                }
+            });
+
+            document.getElementById('trackingResult').classList.add('active');
+        }
+
+        // Check if order ID in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const trackId = urlParams.get('orderId');
+        if (trackId) {
+            document.getElementById('trackOrderInput').value = trackId;
+            trackOrder();
+        }
+    </script>
+</body>
+</html>
